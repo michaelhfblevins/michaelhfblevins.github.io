@@ -8,7 +8,7 @@ I'm a recent Astrophysics graduate from The Ohio State University looking to gai
 
 I also have a passion for outreach and science communication. I spread my love for learning and my enthusiasm for talking about space in the Astronomy Outreach Program I created at Focus Learning Academy of Northern Columbus.
 
-📍 Hometown: Columbus, OH, USA
+📍 Columbus, OH, USA
 
 ✉️ Get in touch: <michaelhfblevins@gmail.com>
 
