@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Blevins — Editorial Dark</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            --paper: #181c24;
+            --canvas: #0f1219;
+            --ink: #f5f1e6;
+            --muted: #c2bdad;
+            --accent: #f1b45f;
+            --accent-2: #70b5ff;
+            --rule: #303544;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: radial-gradient(circle at top left, rgba(113, 147, 220, 0.18), transparent 55%),
+                        radial-gradient(circle at bottom right, rgba(241, 180, 95, 0.16), transparent 50%),
+                        var(--canvas);
+            color: var(--ink);
+            font-family: 'Iowan Old Style', 'Georgia', serif;
+            line-height: 1.75;
+            padding: 0 24px 64px;
+        }
+
+        a {
+            color: var(--accent-2);
+            text-decoration: none;
+        }
+
+        .paper {
+            max-width: 940px;
+            margin: 60px auto 0;
+            background: var(--paper);
+            border-radius: 18px;
+            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.35);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .paper::before,
+        .paper::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+        }
+
+        .paper::before {
+            border: 1px solid rgba(112, 124, 150, 0.35);
+        }
+
+        .paper::after {
+            border: 20px solid transparent;
+            border-left-color: rgba(41, 51, 70, 0.55);
+            opacity: 0.25;
+            transform: translate(-30px, -30px);
+        }
+
+        .sheet {
+            padding: 56px 72px 72px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .masthead {
+            border-bottom: 1px solid var(--rule);
+            padding-bottom: 32px;
+            margin-bottom: 40px;
+        }
+
+        .eyebrow {
+            font-size: 0.78rem;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--accent-2);
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            margin-bottom: 18px;
+            color: var(--ink);
+        }
+
+        .dek {
+            font-size: 1.2rem;
+            max-width: 36em;
+            color: rgba(245, 241, 230, 0.8);
+            margin-bottom: 28px;
+        }
+
+        .meta-lane {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px 24px;
+        }
+
+        .meta-block span {
+            display: block;
+        }
+
+        .meta-label {
+            font-size: 0.76rem;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: rgba(245, 241, 230, 0.55);
+            margin-bottom: 6px;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .toc {
+            margin-bottom: 48px;
+            padding: 18px 22px;
+            border: 1px solid var(--rule);
+            border-radius: 14px;
+            background: linear-gradient(180deg, rgba(112, 124, 150, 0.18), rgba(24, 28, 36, 0.6));
+        }
+
+        .toc-title {
+            font-size: 0.85rem;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            color: rgba(245, 241, 230, 0.65);
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: grid;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: var(--muted);
+        }
+
+        .toc-list li::before {
+            content: "—";
+            margin-right: 12px;
+            color: var(--accent);
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 64px;
+        }
+
+        section h2 {
+            font-size: 1.6rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent-2);
+            margin-bottom: 18px;
+        }
+
+        section p {
+            color: var(--muted);
+            font-size: 1.02rem;
+            margin-bottom: 18px;
+        }
+
+        .highlight {
+            border-left: 4px solid var(--accent);
+            padding: 18px 24px;
+            background: rgba(241, 180, 95, 0.16);
+            margin-bottom: 26px;
+            color: var(--ink);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin: 30px 0 16px;
+            color: var(--accent);
+        }
+
+        .question-list {
+            list-style: none;
+            display: grid;
+            gap: 14px;
+        }
+
+        .question-list li {
+            position: relative;
+            padding-left: 28px;
+            color: var(--muted);
+        }
+
+        .question-list li::before {
+            content: "❧";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .organizer-grid,
+        .people-grid,
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .organizer-card,
+        .person-card,
+        .support-card {
+            border: 1px solid var(--rule);
+            border-radius: 12px;
+            padding: 18px 20px;
+            background: rgba(24, 28, 36, 0.8);
+        }
+
+        .organizer-card h3,
+        .person-card strong,
+        .support-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--ink);
+        }
+
+        .organizer-card p,
+        .person-card span,
+        .support-card p {
+            color: var(--muted);
+            font-size: 0.98rem;
+        }
+
+        .theme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .theme-card {
+            border: 1px solid var(--rule);
+            border-radius: 14px;
+            padding: 20px 22px;
+            background: rgba(34, 39, 50, 0.75);
+        }
+
+        .theme-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--accent-2);
+        }
+
+        .timeline {
+            border-left: 2px solid var(--rule);
+            padding-left: 32px;
+            display: grid;
+            gap: 42px;
+            margin-top: 40px;
+        }
+
+        .day-card {
+            position: relative;
+        }
+
+        .day-card::before {
+            content: "";
+            position: absolute;
+            left: -39px;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 4px solid var(--paper);
+        }
+
+        .day-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: baseline;
+            margin-bottom: 18px;
+            color: var(--accent-2);
+        }
+
+        .day-date {
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .day-theme {
+            font-size: 0.95rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .session {
+            border: 1px solid var(--rule);
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-bottom: 16px;
+            background: rgba(24, 28, 36, 0.85);
+        }
+
+        .session:last-child {
+            margin-bottom: 0;
+        }
+
+        .session-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--ink);
+        }
+
+        .leading-questions {
+            font-style: italic;
+            background: rgba(241, 180, 95, 0.22);
+            padding: 14px 16px;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            color: var(--muted);
+        }
+
+        .leading-questions strong {
+            font-style: normal;
+            color: var(--accent-2);
+        }
+
+        .topics strong {
+            display: block;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            color: var(--accent-2);
+        }
+
+        .topics ul {
+            list-style: none;
+            margin-top: 12px;
+            display: grid;
+            gap: 10px;
+        }
+
+        .topics li {
+            position: relative;
+            padding-left: 20px;
+            color: var(--muted);
+        }
+
+        .topics li::before {
+            content: "·";
+            position: absolute;
+            left: 6px;
+            top: 0;
+            font-size: 1.6rem;
+            line-height: 1;
+            color: var(--accent);
+        }
+
+        .lunch-break {
+            font-size: 0.9rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin: 12px 0;
+            text-align: center;
+        }
+
+        .cta-card {
+            border: 1px solid var(--rule);
+            border-radius: 14px;
+            padding: 28px;
+            text-align: center;
+            background: rgba(34, 39, 50, 0.86);
+        }
+
+        .register-button {
+            display: inline-block;
+            padding: 12px 28px;
+            border: 1px solid var(--accent-2);
+            color: var(--canvas);
+            background: linear-gradient(135deg, var(--accent-2), var(--accent));
+            font-size: 0.95rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            border-radius: 999px;
+            font-weight: 600;
+        }
+
+        .registration-note {
+            margin-top: 14px;
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        footer {
+            border-top: 1px solid var(--rule);
+            margin-top: 64px;
+            padding-top: 28px;
+            color: var(--muted);
+        }
+
+        footer h3 {
+            font-size: 1.2rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            color: var(--accent-2);
+        }
+
+        footer p {
+            margin-bottom: 12px;
+        }
+
+        .copyright {
+            margin-top: 22px;
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        /* Panel Details Styling */
+        .panel-section {
+            margin-top: 48px;
+        }
+
+        .panel-block {
+            border: 1px solid var(--rule);
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 28px;
+            background: rgba(24, 28, 36, 0.8);
+        }
+
+        .panel-header {
+            margin-bottom: 18px;
+        }
+
+        .panel-time {
+            font-size: 0.85rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .panel-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--accent-2);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .panelist-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .panelist-list li {
+            padding: 6px 14px;
+            background: rgba(112, 181, 255, 0.15);
+            border: 1px solid rgba(112, 181, 255, 0.3);
+            border-radius: 20px;
+            font-size: 0.92rem;
+            color: var(--ink);
+        }
+
+        .talk-item {
+            padding: 16px;
+            background: rgba(241, 180, 95, 0.08);
+            border-left: 3px solid var(--accent);
+            margin-bottom: 12px;
+            border-radius: 6px;
+        }
+
+        .talk-title {
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 4px;
+        }
+
+        .talk-speaker {
+            font-size: 0.92rem;
+            color: var(--muted);
+        }
+
+        details {
+            margin-top: 16px;
+            border-top: 1px solid var(--rule);
+            padding-top: 16px;
+        }
+
+        summary {
+            cursor: pointer;
+            font-size: 0.95rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent-2);
+            padding: 8px 0;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        summary:hover {
+            color: var(--accent);
+        }
+
+        summary::marker {
+            content: '';
+        }
+
+        summary::before {
+            content: '▸';
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .example-questions {
+            padding: 16px 20px;
+            margin-top: 12px;
+        }
+
+        .example-questions li {
+            margin-bottom: 12px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 900px) {
+            .sheet {
+                padding: 48px 40px 56px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 0 12px 40px;
+            }
+
+            .paper {
+                margin: 32px auto 0;
+            }
+
+            .sheet {
+                padding: 40px 28px 48px;
+            }
+
+            h1 {
+                font-size: 2.4rem;
+            }
+
+            .meta-lane {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="paper">
+        <div class="sheet">
+            <header class="masthead">
+                <h1>Michael Blevins</h1>
+                <p class="dek">Welcome to the Personal Webiste of</p>
+                <div class="meta-lane">
+                    <div class="meta-block">
+                        <span class="meta-label">Skills</span>
+                        <span class="meta-value">Python<br>Machine Learning<br>Astronomical Data Analysis</span>
+                    </div>
+                    <div class="meta-block">
+                        <span class="meta-label">Interests</span>
+                        <span class="meta-value">Motorcycles<br>Hiking<br>Music<br>Math</span>
+                    </div>
+                    <div class="meta-block">
+                        <span class="meta-label">Location</span>
+                        <span class="meta-value">Columbus, OH</span>
+                    </div>
+                </div>
+            </header>
+
+            <nav class="toc" aria-label="Table of contents">
+                <span class="toc-title">Contents</span>
+                <ul class="toc-list">
+                    <li><a href="#overview">Scientific Background</a></li>
+                    <li><a href="#organizers">Organizers</a></li>
+                    <li><a href="#goals">Workshop Goals</a></li>
+                    <li><a href="#schedule">Detailed Schedule & Speakers</a></li>
+                    <li><a href="#speakers">Confirmed Speakers / Panelists</a></li>
+                    <li><a href="#registration">Registration</a></li>
+                    <li><a href="#support">Financial Support</a></li>
+                </ul>
+            </nav>
+
+            <main>
+                <section id="overview">
+                    <h2>Scientific Background</h2>
+                    
+                    <figure style="margin: 30px auto; max-width: 600px; border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);">
+                        <img src="TheOhioStateUniversity-Scarlet-Horiz-RGBHEX.png" alt="The Ohio State University" style="width: 100%; height: auto; display: block;">
+                    </figure>
+                    
+                    <p>I am a passionate and determined aspiring scientist eager to apply my computational skill set and analytical thinking to cutting-edge research. During my time as a student at The Ohio State University, I developed excellent capability in astronomical data analysis as well as a deep understanding of the underlying statistics, providing me with the framework to succeed in my future endeavors as I work towards becoming an astronomer.</p>
+                    <p>In an independent project, I took advantage of the COSMOS-Web survey’s public datasets containing physical and photometric data on hundreds of thousands of galaxies. My objective was to comb through the JWST galaxy catalogs and find anomalous sources that potentially merit further scientific follow-up. To do this, I utilized machine learning techniques to develop a clustering and anomaly detection pipeline that can identify distinct subpopulations and unusual outliers. In working on this project, I greatly reinforced my data processing, statistical analysis, and scientific writing skills.</p>
+                </section>
+
+                <section id="organizers">
+                    <h2>Professors</h2>
+                    <div class="organizer-grid">
+                        <article class="organizer-card">
+                            <h3>Yuan-Sen Ting</h3>
+                            <p>The Ohio State University</p>
+                        </article>
+                        <article class="organizer-card">
+                            <h3>Paul Martini</h3>
+                            <p>The Ohio State University</p>
+                        </article>
+                        <article class="organizer-card">
+                            <h3>Richard Hughes</h3>
+                            <p>The Ohio State University</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section id="goals">
+                    <h2>My Goal</h2>
+                    <div class="highlight">
+                        <p>My goal is to contribute to pushing the frontier of our understanding of the universe, whether through astronomical research, scientific communication and outreach, or supporting scientists in various ways, such as processing and archiving data or running observations with astronomical equipment.</p>
+                    </div>
+                    <h3 class="section-subtitle">How I'm Working to Achieve My Goal</h3>
+                    <ul class="question-list">
+                        <li>Apply for entry-level astronomy jobs.</li>
+                        <li>Assist professors with research.</li>
+                        <li>Reach out and make connections with people in the field.</li>
+                    </ul>
+                </section>
+
+                <section id="schedule">
+                    <h2>Projects</h2>
+                    <p>I have worked on two main projects: <strong>"Unsupervised Discovery of Galactic Substructures and Anomalies in the JWST COSMOS-Web Survey"</strong> and <strong>"Machine Learning for Dwarf Satellite Detection"</strong>. These are both independent/course-based projects that I worked on during my time as a student at The Ohio State University.</p>
+
+                    <div class="theme-grid">
+                        <div class="theme-card">
+                            <h3>Unsupervised Discovery of Galactic Substructures and Anomalies in the JWST COSMOS-Web Survey</h3>
+                            <p>• Developed an automated clustering pipeline using Python to analyze high-dimensional tabular data for over 80,000 galaxies, successfully identifying peculiar substructures without labeled training data<br>• Engineered a feature space combining photometric, structural, and physical parameters (e.g., stellar mass, metallicity) to characterize complex distributions in astronomical data<br>• Identified novel data anomalies, including metal-poor starbursts and rare dwarf galaxies, by interpreting cluster physical fingerprints via Z-score heatmaps<br>• Detected algorithmic bias, revealing that geometric features (orientation/inclination) were overpowering physical features in morphological classifications</p>
+                        </div>
+                        <div class="theme-card">
+                            <h3>Machine Learning for Dwarf Satellite Detection</h3>
+                            <p>• Developed a binary classifier to identify rare dwarf satellite galaxies in the SAGA Survey DR3, utilizing cross-modal embeddings and a training set of photometrically indistinguishable background sources to capture morphological features beyond standard photometric data<br>• Applied dimensionality reduction techniques and trained a logistic regression model, optimizing the decision threshold to achieve 95% recall to maximize the recovery of potential candidates for scientific follow-up</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="speakers">
+                    <h2>Data Analysis Skills</h2>
+                    <ul style="list-style: none; display: grid; gap: 12px; color: var(--muted);">
+                        <li style="padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--accent);">·</span>
+                            <strong style="color: var(--ink);">Bayesian Statistics</strong>
+                        </li>
+                        <li style="padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--accent);">·</span>
+                            <strong style="color: var(--ink);">Linear/Logistic Regression</strong>
+                        </li>
+                        <li style="padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--accent);">·</span>
+                            <strong style="color: var(--ink);">Neural Networks (Fully-Connected, Convolutional, Bayesian)</strong>
+                        </li>
+                        <li style="padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--accent);">·</span>
+                            <strong style="color: var(--ink);">Dimensionality Reduction</strong>
+                        </li>
+                        <li style="padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--accent);">·</span>
+                            <strong style="color: var(--ink);">Clustering Algorithms</strong>
+                        </li>
+                        <li style="padding-left: 20px; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--accent);">·</span>
+                            <strong style="color: var(--ink);">Siamese Networks</strong>
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="registration">
+                    <h2>Links</h2>
+                    <div class="cta-card">
+                        <a href="https://github.com/michaelhfblevins" class="register-button">GitHub</a>
+                        <p class="registration-note">Link to my GitHub</p>
+                        <div style="margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--rule);">
+                            <a href="https://www.linkedin.com/in/michaelhfblevins/" class="register-button" style="background: linear-gradient(135deg, var(--accent), var(--accent-2));">LinkedIn</a>
+                            <p class="registration-note">Connect with me on LinkedIn!</p>
+                        </div>
+                        <p class="registration-note" style="margin-top: 24px;">Check out the <a href="https://ai4astro.org/">NASA AI/ML STIG</a> lecture series!</p>
+                    </div>
+                </section>
+            </main>
+
+            <footer>
+                <h3>Contact Information</h3>
+                <p>Feel free to reach out to me!</p>
+                <p><a href="mailto:michaelhfblevins@gmail.com">michaelhfblevins@gmail.com</a></p>
+                <p class="copyright">© 2026 Michael Blevins</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
