@@ -2,8 +2,6 @@
 
 Hello! Welcome to my website!
 
-[michaelhfblevins.github.io](https://michaelhfblevins.github.io)
-
 ## About Me
 
 I'm a recent Astrophysics graduate from The Ohio State University looking to gain experience with astronomical research!
