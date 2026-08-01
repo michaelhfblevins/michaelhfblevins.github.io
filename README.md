@@ -12,7 +12,7 @@ I also have a passion for outreach and science communication. I spread my love f
 
 📍 Hometown: Columbus, OH, USA
 
-✉️ Get in touch: <marina.dunn@iac.es> (until October 2027) or <m.m.dunn@rug.nl> (anytime)
+✉️ Get in touch: <michaelhfblevins@gamil.com>
 
   
 ## 🛠️ Skills
