@@ -38,3 +38,4 @@ I also have a passion for outreach and science communication. I spread my love f
   ### 💻 IDEs/Editors
   ![Jupyter Notebook](https://img.shields.io/badge/jupyter-%23FA0F00.svg?style=for-the-badge&logo=jupyter&logoColor=white)
   ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+  ![Cursor](https://img.shields.io/badge/Cursor?style=for-the-badge&logo=cursor&logoColor=white)
