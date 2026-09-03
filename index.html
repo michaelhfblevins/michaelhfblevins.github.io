@@ -4,19 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michael Blevins | Astrophysicist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            color-scheme: light;
-            --paper: #fffefe; <!-- White red for skills -->
-            --canvas: #eef5f4; <!-- White greener for nav bar -->
-            --surface: #f7fafa; <!-- White green for second background -->
-            --ink: #000000;
-            --muted: #003023; <!-- Viridian Green for body text -->
-            --accent: #003023; <!-- Viridian Green for ?? -->
-            --accent-soft: rgba(63, 143, 110, 0.13); <!-- Bright Green for ?? -->
-            --accent-2: #b98f52; # Dark Tan
-            --accent-2-soft: #7966bd; <!-- ?? -->
-            --rule: #f0f4fa; <!-- White blue for first background -->
+            color-scheme: dark;
+            --paper: #0e1d16;           /* box backgrounds: slightly lifted off the base */
+            --canvas: #09140e;          /* the base color: page + section background */
+            --surface: #0c1a13;         /* alt section background: subtle variant of canvas */
+            --ink: #eef1ec;             /* body text: soft off-white */
+            --muted: #b6c2ba;           /* secondary/less prominent text */
+            --eyebrow: #6ec2d6;         /* teal accent just for "COLUMBUS, OH" */
+            --accent: #4caf8c;          /* Viridian Green: headers + borders, brightened for dark bg */
+            --accent-soft: rgba(76, 175, 140, 0.18);
+            --accent-2: #5fb0c9;        /* secondary cool color: teal-blue, brightened for dark bg */
+            --accent-2-soft: rgba(95, 176, 201, 0.18);
+            --rule: #1c2e24;            /* soft line color for dividers */
+            --heading-font: 'Lato', 'Helvetica Neue', Arial, sans-serif;
         }
 
         * {
@@ -26,9 +31,7 @@
         }
 
         body {
-            background: radial-gradient(circle at 8% 15%, rgba(63, 143, 110, 0.1), transparent 50%),
-                        radial-gradient(circle at 92% 75%, rgba(185, 143, 82, 0.08), transparent 50%),
-                        var(--canvas);
+            background: var(--canvas);
             color: var(--ink);
             font-family: 'Iowan Old Style', 'Georgia', serif;
             line-height: 1.75;
@@ -50,7 +53,7 @@
             position: sticky;
             top: 0;
             z-index: 50;
-            background: rgba(245, 244, 238, 0.92);
+            background: rgba(9, 20, 14, 0.92);
             backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--rule);
         }
@@ -65,19 +68,19 @@
             gap: 12px 40px;
         }
  
-        .nav-l {
+        .nav-link {
             font-size: 0.98rem;
             letter-spacing: 0.03em;
-            color: var(--muted);
+            color: var(--ink);
             padding: 4px 2px;
             border-bottom: 2px solid transparent;
         }
- 
-        .nav-l:hover {
-            color: var(--accent-soft);
+
+        .nav-link:hover {
+            color: var(--accent);
         }
- 
-        .nav-l.active {
+
+        .nav-link.active {
             color: var(--accent);
             border-bottom-color: var(--accent);
         }
@@ -93,6 +96,7 @@
         .section {
             padding: 84px 0;
             border-bottom: 1px solid var(--rule);
+            background: var(--canvas);
         }
  
         .section.alt {
@@ -104,9 +108,10 @@
         }
  
         h2 {
+            font-family: var(--heading-font);
             font-size: 1.7rem;
-            font-weight: 600;
-            letter-spacing: 0.04em;
+            font-weight: 700;
+            letter-spacing: 0.02em;
             color: var(--accent);
         }
  
@@ -122,20 +127,40 @@
             padding: 100px 0 76px;
             border-bottom: 1px solid var(--rule);
         }
+
+        .hero-wrap {
+            display: flex;
+            align-items: flex-start;
+            gap: 44px;
+        }
+
+        .hero-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            flex-shrink: 0;
+            margin-top: 34px;
+        }
+
+        .hero-text { flex: 1; min-width: 0; }
  
         .eyebrow {
             font-size: 0.85rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: #020142;
+            color: var(--eyebrow);
             margin-bottom: 20px;
         }
  
         h1 {
+            font-family: var(--heading-font);
             font-size: 3.4rem;
-            font-weight: 500;
+            font-weight: 900;
             letter-spacing: -0.5px;
             line-height: 1.1;
+            color: var(--accent);
             margin-bottom: 20px;
         }
  
@@ -155,7 +180,7 @@
         .tag {
             font-size: 0.88rem;
             color: var(--ink);
-            border: 1px solid var(--rule);
+            border: 1.5px solid var(--accent);
             border-radius: 999px;
             padding: 7px 16px;
             background: var(--paper);
@@ -166,7 +191,7 @@
         .about-figure {
             max-width: 420px;
             margin-bottom: 28px;
-            border: 1px solid var(--rule);
+            border: 1.5px solid var(--accent);
             border-radius: 10px;
             overflow: hidden;
             background: var(--paper);
@@ -192,9 +217,10 @@
         }
  
         .section-subtitle {
+            font-family: var(--heading-font);
             font-size: 1.05rem;
-            font-weight: 600;
-            letter-spacing: 0.06em;
+            font-weight: 700;
+            letter-spacing: 0.04em;
             color: var(--accent-2);
             margin-bottom: 16px;
         }
@@ -208,7 +234,7 @@
         .step-list li {
             position: relative;
             padding-left: 26px;
-            color: var(--muted);
+            color: var(--ink);
         }
  
         .step-list li::before {
@@ -227,21 +253,26 @@
         }
  
         .project-card {
-            border: 1px solid var(--rule);
+            border: 1.5px solid var(--accent);
             border-radius: 12px;
             padding: 26px 28px;
             background: var(--paper);
         }
- 
+
+        .project-card:nth-child(2) {
+            border-color: var(--accent-2);
+        }
+
         .project-card h3 {
+            font-family: var(--heading-font);
             font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--accent-2);
+            font-weight: 700;
+            color: var(--accent);
             margin-bottom: 14px;
         }
- 
+
         .project-card p {
-            color: var(--muted);
+            color: var(--ink);
             font-size: 0.98rem;
             margin-bottom: 0;
         }
@@ -250,23 +281,60 @@
  
         .skill-grid {
             list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 14px;
         }
- 
+
         .skill-grid li {
-            border: 1px solid var(--rule);
-            border-radius: 10px;
-            padding: 16px 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1.5px solid var(--accent);
+            border-radius: 999px;
+            padding: 12px 22px;
             background: var(--paper);
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
+        }
+
+        .skill-grid li::before {
+            content: "";
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .skill-grid li:nth-child(even) {
+            border-color: var(--accent-2);
+        }
+
+        .skill-grid li:nth-child(even)::before {
+            background: var(--accent-2);
+        }
+
+        .skill-grid li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(76, 175, 140, 0.25);
+            background: var(--accent);
+            color: #ffffff;
+        }
+
+        .skill-grid li:nth-child(even):hover {
+            background: var(--accent-2);
+        }
+
+        .skill-grid li:hover::before {
+            background: #ffffff;
         }
  
         /* ---------- links ---------- */
  
         .cta-card {
-            border: 1px solid var(--rule);
+            border: 1.5px solid var(--accent);
             border-radius: 14px;
             padding: 34px;
             background: var(--paper);
@@ -293,19 +361,19 @@
             font-weight: 600;
         }
         .button.secondary {
-            border: 1px solid var(--rule);
-            color: var(--accent);
+            border: 1.5px solid var(--accent-2);
+            color: var(--accent-2);
         }
  
         .cta-note {
-            color: var(--muted);
+            color: var(--ink);
             font-size: 0.98rem;
             margin-top: 18px;
         }
  
         .cta-note a {
-            color: var(--accent-2);
-            border-bottom: 1px solid var(--accent-2-soft);
+            color: var(--accent);
+            border-bottom: 1px solid var(--accent-soft);
         }
  
         /* ---------- footer ---------- */
@@ -315,20 +383,21 @@
         }
  
         footer h3 {
+            font-family: var(--heading-font);
             font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: 0.04em;
-            color: var(--accent-2);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: var(--accent);
             margin-bottom: 14px;
         }
  
         footer p {
-            color: var(--muted);
+            color: var(--ink);
             margin-bottom: 10px;
         }
  
         footer a {
-            color: var(--ink);
+            color: var(--accent);
             border-bottom: 1px solid var(--rule);
         }
  
@@ -336,14 +405,16 @@
             margin-top: 26px;
             font-size: 0.85rem;
             letter-spacing: 0.04em;
-            color: var(--muted);
+            color: var(--ink);
         }
  
         @media (max-width: 640px) {
             h1 { font-size: 2.4rem; }
             .section { padding: 60px 0; }
             .hero { padding: 76px 0 52px; }
-            .header-inner { padding: 16px 20px; }
+            .hero-wrap { flex-direction: column; text-align: center; gap: 28px; }
+            .hero-photo { width: 160px; height: 160px; margin-top: 0; }
+            .hero-wrap .tag-row { justify-content: center; }
         }
     </style>
 </head>
@@ -360,15 +431,18 @@
  
     <main>
         <section class="hero" id="top">
-            <div class="wrap">
-                <p class="eyebrow">Columbus, OH</p>
-                <h1>Michael Blevins</h1>
-                <p class="dek">Aspiring astrophysicist, software developer, and data scientist applying computational tools and emerging technologies to develop novel, innovative solutions to complex problems.</p>
-                <div class="tag-row">
-                    <span class="tag">Python</span>
-                    <span class="tag">Machine Learning</span>
-                    <span class="tag">Astronomical Data Analysis</span>
-                    <span class="tag">AI Engineering</span>
+            <div class="wrap hero-wrap">
+                <img src="images/profile.jpg" alt="Photo of Michael" class="hero-photo">
+                <div class="hero-text">
+                    <p class="eyebrow">Columbus, OH</p>
+                    <h1>Michael Blevins</h1>
+                    <p class="dek">Aspiring astrophysicist, software developer, and data scientist applying computational tools and emerging technologies to develop novel, innovative solutions to complex problems.</p>
+                    <div class="tag-row">
+                        <span class="tag">Python</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Astronomical Data Analysis</span>
+                        <span class="tag">AI Engineering</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -421,10 +495,11 @@
                 <ul class="skill-grid">
                     <li>Bayesian Statistics</li>
                     <li>Linear/Logistic Regression</li>
-                    <li>Neural Networks (Fully-Connected, Convolutional, Bayesian)</li>
+                    <li>Neural Networks (MLP, Convolutional, Bayesian, Siamese)</li>
                     <li>Dimensionality Reduction</li>
                     <li>Clustering Algorithms</li>
-                    <li>Siamese Networks</li>
+                    <li>Agentic LLMs</li>
+                    <li>Retrieval Augmented Generation (RAG)</li>
                 </ul>
             </div>
         </section>
@@ -435,7 +510,7 @@
                 <div class="cta-card">
                     <div class="cta-row">
                         <a href="https://github.com/michaelhfblevins" class="button primary">GitHub</a>
-                        <a href="https://www.linkedin.com/in/michaelhfblevins/" class="button secondary">LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/michaelhfblevins" class="button secondary">LinkedIn</a>
                     </div>
                     <p class="cta-note">Check out my GitHub and connect with me on LinkedIn!</p>
                 </div>
