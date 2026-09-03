@@ -333,48 +333,49 @@
  
         /* ---------- links ---------- */
  
-        .cta-card {
-            border: 1.5px solid var(--accent);
-            border-radius: 14px;
-            padding: 34px;
-            background: var(--paper);
-        }
- 
-        .cta-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            margin-bottom: 12px;
-        }
- 
-        .button {
-            display: inline-block;
-            padding: 12px 28px;
-            border-radius: 999px;
-            font-size: 0.95rem;
-            letter-spacing: 0.03em;
-        }
- 
-        .button.primary {
-            background: var(--accent);
-            color: var(--paper);
-            font-weight: 600;
-        }
-        .button.secondary {
-            border: 1.5px solid var(--accent-2);
-            color: var(--accent-2);
-        }
- 
         .cta-note {
             color: var(--ink);
-            font-size: 0.98rem;
-            margin-top: 18px;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
         }
  
-        .cta-note a {
-            color: var(--accent);
-            border-bottom: 1px solid var(--accent-soft);
+        .icon-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
         }
+ 
+        .icon-link {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1.5px solid var(--accent);
+            border-radius: 50%;
+            background: var(--paper);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+ 
+        .icon-link:nth-child(2) {
+            border-color: var(--accent-2);
+        }
+ 
+        .icon-link img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+        }
+ 
+        .icon-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 22px rgba(76, 175, 140, 0.25);
+        }
+ 
+        .icon-link:nth-child(2):hover {
+            box-shadow: 0 10px 22px rgba(95, 176, 201, 0.25);
+        }
+
  
         /* ---------- footer ---------- */
  
@@ -507,12 +508,14 @@
         <section id="links" class="section">
             <div class="wrap">
                 <div class="section-head"><h2>Links</h2></div>
-                <div class="cta-card">
-                    <div class="cta-row">
-                        <a href="https://github.com/michaelhfblevins" class="button primary">GitHub</a>
-                        <a href="https://www.linkedin.com/in/michaelhfblevins" class="button secondary">LinkedIn</a>
-                    </div>
-                    <p class="cta-note">Check out my GitHub and connect with me on LinkedIn!</p>
+                <p class="cta-note">Check out my GitHub and connect with me on LinkedIn!</p>
+                <div class="icon-row">
+                    <a href="https://github.com/michaelhfblevins" class="icon-link" aria-label="GitHub">
+                        <img src="GitHub_Lockup_White.png" alt="GitHub">
+                    </a>
+                    <a href="https://www.linkedin.com/in/michaelhfblevins" class="icon-link" aria-label="LinkedIn">
+                        <img src="LI-Logo.png" alt="LinkedIn">
+                    </a>
                 </div>
             </div>
         </section>
