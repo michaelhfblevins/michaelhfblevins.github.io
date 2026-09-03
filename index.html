@@ -152,15 +152,34 @@
         /* ---------- hero ---------- */
  
         .hero {
+            position: relative;
+            overflow: hidden;
             padding: 100px 0 76px;
             border-bottom: 1px solid var(--rule);
         }
-
+ 
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image: url('images/dark space 4k.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: 0;
+        }
+ 
         .hero-wrap {
+            position: relative;
+            z-index: 1;
             display: flex;
             align-items: flex-start;
             gap: 44px;
         }
+
 
         .hero-photo {
             width: 200px;
