@@ -1,14 +1,17 @@
 # Michael Blevins
 
-Hello! Welcome to my website!
+Hey, welcome to my website!
 
 ## About Me
 
-I'm a recent Astrophysics graduate from The Ohio State University looking to gain experience with astronomical research!
+I'm a recent Astrophysics graduate from The Ohio State University looking to apply my knowledge and academic training to:
+- Scientific Data Analysis
+- Software Development
+- AI Engineering
 
 I also have a passion for outreach and science communication. I spread my love for learning and my enthusiasm for talking about space in the Astronomy Outreach Program I created at Focus Learning Academy of Northern Columbus.
 
-📍 Columbus, OH, USA
+📍 Columbus, OH
 
 ✉️ Get in touch: <michaelhfblevins@gmail.com>
 
@@ -22,7 +25,7 @@ I also have a passion for outreach and science communication. I spread my love f
   ![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)
 
 
-  ### 📈 Artificial Intelligence/Machine Learning/Deep Learning/Data Science
+  ### 📈 Artificial Intelligence/Machine Learning/Data Science
   ![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)
   ![Keras](https://img.shields.io/badge/Keras-%23D00000.svg?style=for-the-badge&logo=Keras&logoColor=white)
   ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)
