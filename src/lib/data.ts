@@ -66,6 +66,6 @@ export const section = "py-15 sm:py-21"
 
 export const heading1 = "font-heading text-[2.4rem] font-bold leading-[1.1] tracking-[-0.3px] bg-gradient-to-r from-[#28a175] to-accent bg-clip-text text-transparent sm:text-[3.6rem]"
 
-export const heading2 = "mb-7 font-heading text-[1.35rem] uppercase font-semibold tracking-[0.07em] text-accent sm:text-[1.35rem]"
+export const heading2 = "mb-7 font-heading text-[1.35rem] uppercase font-semibold tracking-[0.07em] text-accent"
 
-export const text_p = "mb-4 max-w-[109ch] text-[1.2rem] leading-[1.75] text-ink"
+export const text_p = "mb-4 max-w-[109ch] text-[1rem] sm:text-[1.2rem] leading-[1.75] text-ink"
