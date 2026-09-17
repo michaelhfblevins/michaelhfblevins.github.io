@@ -5,7 +5,7 @@ import { wrap, heading1, tags } from "@/lib/data";
 const hero_wrap = "relative z-10 mx-auto flex flex-col items-center gap-7 px-7 text-center pt-4 sm:pt-0"
 const hero_section = "relative overflow-hidden flex items-center justify-center size-full min-h-dvh"
 const hero_bg = "absolute inset-0 z-0 bg-cover bg-center opacity-50"
-const hero_profile = "mt-24 sm:-mt-24 size-32 sm:size-40 flex-shrink-0 rounded-full border-[3px] border-accent object-cover"
+const hero_profile = "mt-12 sm:-mt-24 size-32 sm:size-40 flex-shrink-0 rounded-full border-[3px] border-accent object-cover"
 const eyebrow = "text-[0.85rem] leading-[1.75] uppercase tracking-[0.2em] text-eyebrow"
 const dek = "mb-8 max-w-[60ch] text-[1.2rem] sm:text-[1.4rem] leading-[1.75] text-ink"
 const tag_row = "flex flex-wrap justify-center gap-4"
