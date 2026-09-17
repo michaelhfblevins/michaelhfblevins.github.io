@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #0e1d16;
+  --color-canvas: #09140e;
+  --color-surface: #101f17;
+  --color-ink: #eef1ec;
+  --color-ink-subtle: #cbd4cd;
+  --color-muted: #00732c;
+  --color-eyebrow: #5bb8cf;
+  --color-accent: #00a65e;
+  --color-accent-2: #5fb0c9;
+  --color-rule: #1c2e24;
+
+  --font-heading: var(--font-lato), "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Iowan Old Style", Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  line-height: 1.75;
+}
+
+@keyframes pulse-pop {
+    0%, 16.67%, 100% { 
+      transform: scale(1);
+	  box-shadow: 0 0 0 0 transparent;
+	  background-color: transparent;
+    }
+    6.67% { 
+      transform: scale(1.1);
+	  box-shadow: 0 10px 24px rgba(76,175,140,0.25);
+	  background-color: rgba(0,166,94,0.8);
+    }
+	10% { 
+      transform: scale(1.1);
+	  box-shadow: 0 10px 24px rgba(76,175,140,0.25);
+	  background-color: rgba(0,166,94,0.8);
+    }
+}
+.animate-pulse-pop { animation: pulse-pop 7.5s ease-in-out infinite; }
