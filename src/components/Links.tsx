@@ -3,10 +3,10 @@ import { wrap, section, heading2, } from "@/lib/data";
 
 /* Define Links classes */
 const cta_note = "mb-2 text-[1.2rem] text-ink"
-const icon_row = "flex flex-wrap items-center gap-[26px]"
+const icon_row = "mt-10 flex flex-wrap items-center gap-[26px]"
 const icon_link = "group inline-flex"
-const github_icon = "h-[84px] w-[84px] object-contain transition duration-[180ms] ease-out group-hover:-translate-y-[3px] group-hover:drop-shadow-[0_0_5px_rgba(255,255,255,0.85)]"
-const linkedin_icon = "h-[84px] w-[84px] object-contain transition duration-[180ms] ease-out group-hover:-translate-y-[3px] group-hover:drop-shadow-[0_0_5px_rgba(10,102,194,0.85)]"
+const github_icon = "h-[21px] w-[84px] object-contain transition duration-[180ms] ease-out group-hover:-translate-y-[2px] group-hover:drop-shadow-[0_0_4px_rgba(255,255,255,0.85)]"
+const linkedin_icon = "h-[21px] w-[84px] object-contain transition duration-[180ms] ease-out group-hover:-translate-y-[2px] group-hover:drop-shadow-[0_0_4px_rgba(10,102,194,0.85)]"
 
 export default function Links() {
   return (
@@ -28,16 +28,16 @@ export default function Links() {
               src="/images/GitHub_Lockup_White.png"
               alt="GitHub"
               width={84}
-              height={84}
+              height={21}
               className={github_icon}
               />
             </a>
-            <a href="https://www.linkedin.com/in/michaelhfblevins" className={icon_link} aria-label="LinkedIn" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/michaelhfblevins" className={icon_link} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
               <Image
               src="/images/LI-Logo.png"
               alt="LinkedIn"
               width={84}
-              height={84}
+              height={21}
               className={linkedin_icon}
               />
             </a>

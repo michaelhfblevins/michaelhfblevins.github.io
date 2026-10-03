@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #0e1d16;
-  --color-canvas: #09140e;
-  --color-surface: #101f17;
+  --color-paper: #0b1a13;
+  --color-canvas: #050f0a;
+  --color-surface: #0a1a12;
   --color-ink: #eef1ec;
   --color-ink-subtle: #cbd4cd;
   --color-muted: #00732c;
@@ -14,6 +14,9 @@
 
   --font-heading: var(--font-lato), "Helvetica Neue", Arial, sans-serif;
   --font-body: "Iowan Old Style", Georgia, serif;
+
+  --animate-pulse-pop: pulse-pop 7.5s ease-in-out infinite;
+  --animate-dot-pulse: dot-pulse 1.8s infinite;
 }
 
 html {
@@ -45,4 +48,17 @@ body {
 	  background-color: rgba(0,166,94,0.8);
     }
 }
-.animate-pulse-pop { animation: pulse-pop 7.5s ease-in-out infinite; }
+
+@keyframes dot-pulse {
+  0% { 
+      transform: scale(0.9);
+	    box-shadow: 0 0 0 0 rgba(0,200,60,1);
+  }
+	70% { 
+      transform: scale(1);
+	    box-shadow: 0 0 0 6px rgba(0,200,60,0);
+  }
+  100% { 
+	    transform: scale(0.9);
+  }
+}

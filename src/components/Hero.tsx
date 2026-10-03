@@ -19,7 +19,7 @@ export default function Hero() {
     >
       <div
         className={hero_bg}
-        style={{ backgroundImage: "url('/images/hero-bg.jpg')" }}
+        style={{ backgroundImage: "url('/images/hero-bg2.jpg')" }}
       />
       <div className={`${hero_wrap} max-w-[1024px]`}>
         <Image

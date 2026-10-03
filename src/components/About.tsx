@@ -2,7 +2,7 @@ import Image from "next/image";
 import { wrap, section, heading2, text_p } from "@/lib/data";
 
 /* Define About classes */
-const about_figure = "mb-7 overflow-hidden max-w-[420px] bg-canvas px-4"
+const about_figure = "mb-7 overflow-hidden max-w-[420px] bg-transparent px-4"
 
 export default function About() {
   return (
