@@ -29,12 +29,12 @@ jobs:
             <head>
               <meta charset="utf-8">
               <meta name="viewport" content="width=device-width, initial-scale=1">
-              <meta http-equiv="refresh" content="0; url=https://mblevins.vercel.app/">
-              <link rel="canonical" href="https://mblevins.vercel.app/">
+              <meta http-equiv="refresh" content="0; url=https://mblevins.space/">
+              <link rel="canonical" href="https://mblevins.space/">
               <title>Michael Blevins</title>
             </head>
             <body>
-              <p>Redirecting to <a href="https://mblevins.vercel.app/">mblevins.vercel.app</a>.</p>
+              <p>Redirecting to <a href="https://mblevins.space/">mblevins.space</a>.</p>
             </body>
           </html>
           EOF
