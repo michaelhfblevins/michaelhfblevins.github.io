@@ -3,7 +3,7 @@ export const wrap = "relative z-10 mx-auto px-7"
 
 export const section = "py-15 sm:py-24"
 
-export const heading1 = "font-heading text-[2.4rem] font-bold leading-[1.1] tracking-[-0.3px] bg-gradient-to-r from-[#28a175] to-accent bg-clip-text text-transparent sm:text-[3.6rem]"
+export const heading1 = "-my-1 sm:my-0 font-heading text-[2.4rem] font-bold leading-[1.1] tracking-[-0.3px] bg-gradient-to-r from-[#28a175] to-accent bg-clip-text text-transparent sm:text-[3.6rem]"
 
 export const heading2 = "mb-7 font-heading text-[1.35rem] uppercase font-semibold tracking-[0.07em] text-accent"
 
