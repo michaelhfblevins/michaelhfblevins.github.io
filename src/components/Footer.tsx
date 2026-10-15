@@ -15,6 +15,8 @@ export default function Footer() {
           <a
             href="mailto:michaelhfblevins@gmail.com"
             className="border-b border-rule text-accent transition duration-200 ease-out hover:text-[#00732c]"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             michaelhfblevins@gmail.com
           </a>

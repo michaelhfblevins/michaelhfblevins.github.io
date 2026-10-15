@@ -18,7 +18,7 @@ export const tags = [
 
 export const goalSteps = [
   "Working on projects to apply, enhance, and expand my skillset to increase my versatility as a scientist.",
-  "Continuing my learning independently through lectures on modern astronomical research practices and working through interactive textbooks in Jupyter",
+  "Continuing my learning independently through lectures on modern astronomical research practices and working through interactive textbooks in Jupyter.",
   "Getting involved. Attending science talks, participating in clubs/societies, reaching out and making connections with people in the field.",
 ];
 
