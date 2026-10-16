@@ -12,11 +12,17 @@ import {
 
 /* Define About classes */
 const about_figure = "mb-8 mx-auto overflow-hidden max-w-[344px] bg-transparent"
+const swipe_overlay = "absolute top-[10%] right-[12%] md:right-[6%] w-[45%] md:w-[58%] h-[60%] z-10 bg-transparent pointer-events-auto touch-pan-x"
+
+/* Define songs */
 const RKS_Album = "https://embed.music.apple.com/us/album/rks/1726995226?itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1726995226&amp;theme=dark"
 const Cringe_URL = "https://embed.music.apple.com/us/album/cringe/1457314241?i=1457314244&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1457314244&amp;theme=dark"
 const Tusk_URL = "https://embed.music.apple.com/us/album/tusk/1055803853?i=1055804196&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1055804196&amp;theme=dark"
+const FirstClass_URL = "https://embed.music.apple.com/us/album/first-class/1726989194?i=1726989407&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1726989407&amp;theme=dark"
 const BreatheDeeper_URL = "https://embed.music.apple.com/us/album/breathe-deeper/1497230760?i=1497231158&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1497231158&amp;theme=dark"
+const Rosemary_URL = "https://embed.music.apple.com/us/album/rosemary/567302377?i=567302386&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=567302386&amp;theme=dark"
 const Unknown_URL = "https://embed.music.apple.com/us/album/unknown-nth/1687585357?i=1687585677&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1687585677&amp;theme=dark"
+const Saturn_URL = "https://embed.music.apple.com/us/album/saturn/890059578?i=890061088&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=890061088&amp;theme=dark"
 const SexDrugsEtc_URL = "https://embed.music.apple.com/us/album/sex-drugs-etc/1627054290?i=1627054792&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1627054792&amp;theme=dark"
 const ImYourWreck_URL = "https://embed.music.apple.com/us/album/im-your-wreck/1746524780?i=1746524783&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1746524783&amp;theme=dark"
 const Capsize_URL = "https://embed.music.apple.com/us/album/capsize/1147798339?i=1147798358&amp;itscg=30200&amp;itsct=music_box_player&amp;ls=1&amp;app=music&amp;mttnsubad=1147798358&amp;theme=dark"
@@ -27,16 +33,20 @@ const NeverTooLate_URL = "https://embed.music.apple.com/us/album/never-too-late/
 const SONGS = [
   { id: 1, title: "Cringe", embedURL: Cringe_URL },
   { id: 2, title: "Tusk", embedURL: Tusk_URL },
-  { id: 3, title: "Breathe Deeper", embedURL: BreatheDeeper_URL },
-  { id: 4, title: "Unknown", embedURL: Unknown_URL },
-  { id: 5, title: "SexDrugsEtc", embedURL: SexDrugsEtc_URL },
-  { id: 6, title: "ImYourWreck", embedURL: ImYourWreck_URL },
-  { id: 7, title: "Capsize", embedURL: Capsize_URL },
-  { id: 8, title: "HotKnifer", embedURL: HotKnifer_URL },
-  { id: 9, title: "Metamorphosis", embedURL: Metamorphosis_URL },
-  { id: 10, title: "NeverTooLate", embedURL: NeverTooLate_URL },
+  { id: 3, title: "FirstClass", embedURL: FirstClass_URL },
+  { id: 4, title: "Breathe Deeper", embedURL: BreatheDeeper_URL },
+  { id: 5, title: "Rosemary", embedURL: Rosemary_URL },
+  { id: 6, title: "Unknown", embedURL: Unknown_URL },
+  { id: 7, title: "Saturn", embedURL: Saturn_URL },
+  { id: 8, title: "SexDrugsEtc", embedURL: SexDrugsEtc_URL },
+  { id: 9, title: "ImYourWreck", embedURL: ImYourWreck_URL },
+  { id: 10, title: "Capsize", embedURL: Capsize_URL },
+  { id: 11, title: "HotKnifer", embedURL: HotKnifer_URL },
+  { id: 12, title: "Metamorphosis", embedURL: Metamorphosis_URL },
+  { id: 13, title: "NeverTooLate", embedURL: NeverTooLate_URL },
 ];
 
+/* Define Apple Music Song Player Carousel function */
 function AppleMusicSlider() {
   return (
     <Carousel
@@ -49,7 +59,7 @@ function AppleMusicSlider() {
       <CarouselContent>
         {SONGS.map((song) => (
           <CarouselItem key={song.id}>
-            <div className="w-full max-w-[660px] mx-auto">
+            <div className="relative w-full max-w-[660px] mx-auto">
               <iframe
                 title={`Apple Music Player - ${song.title}`}
                 src={song.embedURL}
@@ -66,6 +76,7 @@ function AppleMusicSlider() {
                 sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
                 allow="autoplay *; encrypted-media *; clipboard-write"
               />
+              <div className={swipe_overlay} />
             </div>
           </CarouselItem>
         ))}
@@ -76,7 +87,7 @@ function AppleMusicSlider() {
   );
 }
 
-/* Define Applue Music Widget function */
+/* Define Apple Music Widget function */
 function AppleMusicPlayer({ src }: { src: string }) {
   // Determine height based on Album or Song embed
   let calculatedHeight = "450"; // Default height fallback
